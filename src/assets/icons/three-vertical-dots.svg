@@ -25,54 +25,36 @@
      inkscape:document-units="px"
      inkscape:clip-to-page="false"
      inkscape:zoom="16.428527"
-     inkscape:cx="2.2826149"
-     inkscape:cy="20.20875"
+     inkscape:cx="0.79130649"
+     inkscape:cy="17.226134"
      inkscape:window-width="1440"
      inkscape:window-height="831"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="svg1"
      showgrid="false" />
   <defs
      id="defs1" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Layer 2"
-     style="display:inline" />
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <g
-       id="g3"
-       transform="translate(-0.01471995,0.02665449)"
-       style="fill:#fafafa;fill-opacity:1">
-      <rect
-         style="fill:#fafafa;stroke-width:0.264583;fill-opacity:1"
-         id="rect1"
-         width="1.3893405"
-         height="1.3893403"
-         x="3.5599542"
-         y="5.272378"
-         ry="0.33820742" />
-      <rect
-         style="fill:#fafafa;stroke-width:0.264583;fill-opacity:1"
-         id="rect1-8"
-         width="1.3893405"
-         height="1.3893403"
-         x="3.5468118"
-         y="1.7516394"
-         ry="0.33820742" />
-      <rect
-         style="fill:#fafafa;stroke-width:0.264583;fill-opacity:1"
-         id="rect1-5"
-         width="1.3893405"
-         height="1.3893403"
-         x="3.5482817"
-         y="3.5120089"
-         ry="0.33820742" />
-    </g>
-  </g>
+  <rect
+     id="rect1"
+     width="1.3893405"
+     height="1.3893403"
+     x="3.5386631"
+     y="5.7222824"
+     ry="0.33820742" />
+  <rect
+     id="rect1-8"
+     width="1.3893405"
+     height="1.3893403"
+     x="3.5386631"
+     y="3.5386631"
+     ry="0.33820742" />
+  <rect
+     id="rect1-5"
+     width="1.3893405"
+     height="1.3893403"
+     x="3.5386631"
+     y="1.3550436"
+     ry="0.33820742" />
 </svg>
