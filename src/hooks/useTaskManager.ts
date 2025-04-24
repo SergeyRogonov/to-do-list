@@ -47,11 +47,23 @@ export const useTaskManager = () => {
     });
   }, []);
 
+  const reorderTasks = (draggedTaskIndex: number, targetTaskIndex: number) => {
+    setTasks((prevTasks) => {
+      const newTasks = [...prevTasks];
+      const [draggedTask] = newTasks.splice(draggedTaskIndex, 1);
+      newTasks.splice(targetTaskIndex, 0, draggedTask);
+
+      localStorage.setItem("tasksList", JSON.stringify(newTasks));
+      return newTasks;
+    });
+  };
+
   return {
     tasks,
     deleteTask,
     updateTask,
     addTask,
     toggleTask,
+    reorderTasks,
   };
 };
