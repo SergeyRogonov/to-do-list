@@ -121,7 +121,7 @@ export default function TaskForm({
             <div>
               {isEditing && initialTask ? (
                 <button
-                  className="rounded-md bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800"
+                  className="cursor-pointer rounded-md bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800"
                   type="button"
                   onClick={handleDeleteClick}
                 >
@@ -135,12 +135,12 @@ export default function TaskForm({
               <button
                 type="button"
                 onClick={handleCancel}
-                className="rounded-md p-2 font-semibold text-gray-700 hover:bg-gray-300"
+                className="cursor-pointer rounded-md p-2 font-semibold text-gray-700 hover:bg-gray-300"
               >
                 Cancel
               </button>
               <button
-                className="rounded-md bg-gray-700 px-4 py-2 font-semibold text-white hover:bg-gray-800"
+                className="cursor-pointer rounded-md bg-gray-700 px-4 py-2 font-semibold text-white hover:bg-gray-800"
                 type="submit"
               >
                 {isEditing ? "Update" : "Save"}

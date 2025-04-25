@@ -28,7 +28,7 @@ export default function ToDoList() {
       <div className="text-3xl font-bold text-white">Tasks</div>
 
       <button
-        className="rounded bg-[#89eacbb3] px-0.5 text-3xl font-bold hover:bg-[#89EACB]"
+        className="cursor-pointer rounded bg-[#89eacbb3] px-0.5 text-3xl font-bold hover:bg-[#89EACB]"
         id="toDoListDropdown"
         aria-label="menu options"
       >
@@ -104,7 +104,7 @@ export default function ToDoList() {
 
   const AddTaskButton = ({ onClick }: AddTaskButtonProps) => (
     <button
-      className="flex w-full items-center justify-center gap-2 rounded-lg border-3 border-dashed border-gray-100 bg-[#23cc97c6] px-2 py-4 text-gray-100 shadow-xl hover:border-white hover:bg-[#23cc97] hover:text-white"
+      className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border-3 border-dashed border-gray-100 bg-[#23cc97c6] px-2 py-4 text-gray-100 shadow-xl hover:border-white hover:bg-[#23cc97] hover:text-white"
       id="addTask"
       aria-label="add new task"
       onClick={onClick}

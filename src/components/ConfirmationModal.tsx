@@ -23,13 +23,13 @@ export function ConfirmationModal({
         <div className="flex justify-end gap-2">
           <button
             onClick={onClose}
-            className="rounded-md px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100"
+            className="cursor-pointer rounded-md px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100"
           >
             Cancel
           </button>
           <button
             onClick={onConfirm}
-            className="rounded-md bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800"
+            className="cursor-pointer rounded-md bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800"
           >
             Delete
           </button>

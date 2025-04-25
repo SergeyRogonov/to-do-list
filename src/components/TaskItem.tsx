@@ -61,7 +61,7 @@ export default function TaskItem({ task, onToggle, onEdit }: TaskItemProps) {
     <div className="flex w-full flex-col gap-4 rounded-md border-l-4 border-gray-700 bg-white p-2">
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
-          <div
+          <button
             role="checkbox"
             aria-checked={task.finished}
             tabIndex={0}
@@ -77,9 +77,10 @@ export default function TaskItem({ task, onToggle, onEdit }: TaskItemProps) {
               width={24}
               height={24}
               fill={task.finished ? "#23cc97" : "#d3d3d3"}
-              className="transition-colors duration-200"
+              className="pointer-events-none transition-colors duration-200"
+              aria-hidden="true"
             />
-          </div>
+          </button>
           <span
             className={`${
               task.finished ? "text-gray-500 line-through" : "text-gray-600"
@@ -91,11 +92,15 @@ export default function TaskItem({ task, onToggle, onEdit }: TaskItemProps) {
 
         <div className="relative flex" ref={optionsRef}>
           <button
-            className="h-min rounded px-0.5 text-3xl font-bold hover:bg-gray-100"
+            className="h-min cursor-pointer rounded px-0.5 text-3xl font-bold hover:bg-gray-100"
             onClick={() => onEdit(task)}
-            aria-label="task options"
+            aria-label="edit task"
           >
-            <ThreeDots fill="#4b5563" />
+            <ThreeDots
+              fill="#4b5563"
+              aria-hidden="true"
+              className="pointer-events-none"
+            />
           </button>
         </div>
       </div>
