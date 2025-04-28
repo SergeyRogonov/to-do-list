@@ -11,13 +11,13 @@ export const useTaskManager = () => {
     }
   }, []);
 
-  const deleteTask = useCallback((taskId: string) => {
+  const deleteTask = (taskId: string) => {
     setTasks((prevTasks) => {
       const remainingTasks = prevTasks.filter((task) => task.id != taskId);
       localStorage.setItem("tasksList", JSON.stringify(remainingTasks));
       return remainingTasks;
     });
-  }, []);
+  };
 
   const updateTask = useCallback((updatedTask: Task) => {
     setTasks((prevTasks) => {
@@ -58,6 +58,41 @@ export const useTaskManager = () => {
     });
   };
 
+  const sortActiveTasksFirst = useCallback(() => {
+    setTasks((prevTasks) => {
+      const activeTasks = [...prevTasks].filter((task) => !task.finished);
+      const finishedTasks = [...prevTasks].filter((task) => task.finished);
+      const newTasks = [...activeTasks, ...finishedTasks];
+      localStorage.setItem("tasksList", JSON.stringify(newTasks));
+      return newTasks;
+    });
+  }, []);
+
+  const sortFinishedTasksFirst = useCallback(() => {
+    setTasks((prevTasks) => {
+      const activeTasks = [...prevTasks].filter((task) => !task.finished);
+      const finishedTasks = [...prevTasks].filter((task) => task.finished);
+      const newTasks = [...finishedTasks, ...activeTasks];
+      localStorage.setItem("tasksList", JSON.stringify(newTasks));
+      return newTasks;
+    });
+  }, []);
+
+  const deleteFinishedTasks = () => {
+    setTasks((prevTasks) => {
+      const activeTasks = [...prevTasks].filter((task) => !task.finished);
+      localStorage.setItem("tasksList", JSON.stringify(activeTasks));
+      return activeTasks;
+    });
+  };
+
+  const deleteAllTasks = () => {
+    setTasks(() => {
+      localStorage.setItem("tasksList", JSON.stringify([]));
+      return [];
+    });
+  };
+
   return {
     tasks,
     deleteTask,
@@ -65,5 +100,9 @@ export const useTaskManager = () => {
     addTask,
     toggleTask,
     reorderTasks,
+    sortActiveTasksFirst,
+    sortFinishedTasksFirst,
+    deleteFinishedTasks,
+    deleteAllTasks,
   };
 };

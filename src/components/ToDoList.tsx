@@ -5,16 +5,26 @@ import {
   Draggable,
   DropResult,
 } from "@hello-pangea/dnd";
-import ThreeDots from "../assets/icons/three-vertical-dots.svg?react";
 import plusCircle from "../assets/icons/plus-circle.svg";
 import TaskForm from "./TaskForm";
 import TaskItem from "./TaskItem";
+import ToDoHeader from "./ToDoHeader";
 import { Task, TaskListProps } from "../types/types";
 import { useTaskManager } from "../hooks/useTaskManager";
 
 export default function ToDoList() {
-  const { tasks, addTask, updateTask, toggleTask, deleteTask, reorderTasks } =
-    useTaskManager();
+  const {
+    tasks,
+    addTask,
+    updateTask,
+    toggleTask,
+    deleteTask,
+    reorderTasks,
+    sortActiveTasksFirst,
+    sortFinishedTasksFirst,
+    deleteFinishedTasks,
+    deleteAllTasks,
+  } = useTaskManager();
   const [showTaskForm, setShowTaskForm] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
 
@@ -22,20 +32,6 @@ export default function ToDoList() {
     setShowTaskForm(false);
     setTaskToEdit(null);
   };
-
-  const ToDoHeader = () => (
-    <div className="flex flex-row justify-between border-b-3 border-gray-200 pb-2">
-      <div className="text-3xl font-bold text-white">Tasks</div>
-
-      <button
-        className="cursor-pointer rounded bg-[#89eacbb3] px-0.5 text-3xl font-bold hover:bg-[#89EACB]"
-        id="toDoListDropdown"
-        aria-label="menu options"
-      >
-        <ThreeDots fill="white" />
-      </button>
-    </div>
-  );
 
   const TaskList = ({ tasks, onToggle, onEdit, onDelete }: TaskListProps) => {
     const onDragEnd = (result: DropResult) => {
@@ -121,7 +117,12 @@ export default function ToDoList() {
       className="flex w-full max-w-md flex-col gap-6 p-4"
       id="toDoListContainer"
     >
-      <ToDoHeader />
+      <ToDoHeader
+        sortActiveTasksFirst={sortActiveTasksFirst}
+        sortFinishedTasksFirst={sortFinishedTasksFirst}
+        deleteFinishedTasks={deleteFinishedTasks}
+        deleteAllTasks={deleteAllTasks}
+      />
 
       {showTaskForm && !taskToEdit && (
         <TaskForm
