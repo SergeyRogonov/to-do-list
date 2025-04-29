@@ -1,5 +1,5 @@
 import "./App.css";
-import ToDoList from "@/components/ToDoList";
+import ToDoContainer from "@/components/ToDoContainer";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <h1 className="text-center text-4xl font-extrabold text-white text-shadow-2xs text-shadow-gray-300">
         To Do List
       </h1>
-      <ToDoList />
+      <ToDoContainer />
     </div>
   );
 }

@@ -1,9 +1,20 @@
 import { useEffect, useState, useRef } from "react";
 import CheckboxCircle from "../assets/icons/checkbox-circle.svg?react";
 import ThreeDots from "../assets/icons/three-vertical-dots.svg?react";
-import { TaskItemProps } from "../types/types.ts";
+import { Task } from "../types/types.ts";
 
-export default function TaskItem({ task, onToggle, onEdit }: TaskItemProps) {
+export interface TaskItemProps {
+  task: Task;
+  toggleTask: (taskId: string) => void;
+  editTask: (task: Task) => void;
+  deleteTask: (taskId: string) => void;
+}
+
+export default function TaskItem({
+  task,
+  toggleTask,
+  editTask,
+}: TaskItemProps) {
   const [showMore, setShowMore] = useState(false);
   const [hasMoreContent, setHasMoreContent] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -65,10 +76,10 @@ export default function TaskItem({ task, onToggle, onEdit }: TaskItemProps) {
             role="checkbox"
             aria-checked={task.finished}
             tabIndex={0}
-            onClick={() => onToggle(task.id)}
+            onClick={() => toggleTask(task.id)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                onToggle(task.id);
+                toggleTask(task.id);
               }
             }}
             className="cursor-pointer"
@@ -93,7 +104,7 @@ export default function TaskItem({ task, onToggle, onEdit }: TaskItemProps) {
         <div className="relative flex" ref={optionsRef}>
           <button
             className="h-min cursor-pointer rounded px-0.5 text-3xl font-bold hover:bg-gray-100"
-            onClick={() => onEdit(task)}
+            onClick={() => editTask(task)}
             aria-label="edit task"
           >
             <ThreeDots

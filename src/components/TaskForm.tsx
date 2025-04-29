@@ -5,7 +5,7 @@ import { useTaskManager } from "@/hooks/useTaskManager.ts";
 import { ConfirmationModal } from "./ConfirmationModal.tsx";
 
 interface TaskFormProps {
-  onClose: () => void;
+  handleFormClose: () => void;
   onTaskSubmit: (task: Task) => void;
   onTaskDelete?: (taskId: string) => void;
   initialTask: Task | null;
@@ -13,7 +13,7 @@ interface TaskFormProps {
 }
 
 export default function TaskForm({
-  onClose,
+  handleFormClose,
   onTaskSubmit,
   onTaskDelete,
   initialTask,
@@ -56,12 +56,12 @@ export default function TaskForm({
       };
 
       onTaskSubmit(taskData);
-      onClose();
+      handleFormClose();
     }
   };
 
   const handleCancel = () => {
-    onClose();
+    handleFormClose();
   };
 
   const handleDeleteClick = () => {
@@ -75,7 +75,7 @@ export default function TaskForm({
         onTaskDelete(initialTask.id);
       }
       setShowDeleteConfirmation(false);
-      onClose();
+      handleFormClose();
     }
   };
 
