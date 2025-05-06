@@ -46,7 +46,7 @@ export default function ToDoHeader({
       <div className="flex flex-row justify-between border-b-3 border-gray-200 pb-2">
         <div className="text-3xl font-bold text-white">Tasks</div>
         <Menu>
-          <MenuButton className="cursor-pointer rounded-md bg-[#89eacbb3] px-1.5 py-1 data-hover:bg-[#89EACB] data-open:bg-[#89EACB]">
+          <MenuButton className="cursor-pointer rounded-md bg-[#89eacbb3] px-1.5 py-1 data-hover:bg-[#89EACB] data-open:bg-[#89EACB]" aria-label="tasks menu">
             <ThreeDots
               fill="white"
               aria-hidden="true"

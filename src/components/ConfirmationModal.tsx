@@ -30,6 +30,7 @@ export function ConfirmationModal({
           <button
             onClick={onConfirm}
             className="cursor-pointer rounded-md bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800"
+            aria-label="Confirm delete task"
           >
             Delete
           </button>

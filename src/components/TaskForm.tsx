@@ -38,6 +38,9 @@ export default function TaskForm({
   };
 
   const sanitizeInput = (input: string): string => {
+    input = input.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+    input = input.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
+  
     return input.replace(/<[^>]*>/g, "");
   };
 
@@ -88,6 +91,7 @@ export default function TaskForm({
               <input
                 onChange={(e) => setTaskTitle(e.target.value)}
                 placeholder="What are you working on?"
+                aria-label="task title"
                 type="text"
                 maxLength={200}
                 value={taskTitle}
@@ -100,6 +104,7 @@ export default function TaskForm({
                 <textarea
                   onChange={(e) => setTaskNotes(e.target.value)}
                   id="taskNotes"
+                  aria-label="task notes"
                   placeholder="Some notes..."
                   maxLength={1000}
                   value={taskNotes}
@@ -124,6 +129,7 @@ export default function TaskForm({
                   className="cursor-pointer rounded-md bg-red-700 px-4 py-2 font-semibold text-white hover:bg-red-800"
                   type="button"
                   onClick={handleDeleteClick}
+                  aria-label="Delete task"
                 >
                   Delete
                 </button>
